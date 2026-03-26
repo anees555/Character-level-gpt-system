@@ -1,0 +1,38 @@
+
+__pycache__/
+
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Models and data
+*.pt
+*.pth
+*.pkl
+*.zip
+models/
+data/
+checkpoints/
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+gptenv/
+venv/
+
+# dataset 
+dataset/
