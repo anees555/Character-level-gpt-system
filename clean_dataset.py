@@ -16,8 +16,31 @@ def clean_dataset(text):
     # Fix spacing around common punctuation
     text = re.sub(r' +([।,\.!?])', r'\1', text)  # Remove space before punctuation
     text = re.sub(r'([।,\.!?]) +', r'\1 ', text)  # Normalize space after punctuation
-    
-    return text
+    text = text.replace("–", "-")
+    text = text.replace("—", "-")
+    text = text.replace("“", '"')
+    text = text.replace("”", '"')
+    text = text.replace("’", "'")
+    text = text.replace("\u2009", " ")
+    text = text.replace("\u202f", " ")
+    text = text.replace("‘", "'")
+    text = text.replace("’", "'")
+    allowed_chars = set(
+    "अआइईउऊऋएऐओऔ"
+    "कखगघङचछजझञ"
+    "टठडढणतथदधन"
+    "पफबभमयरलव"
+    "शषसह"
+    "ँंः"
+    "ािीुूृेैोौ्"
+    "०१२३४५६७८९"
+    "।॥"
+    " ,.?!:\"'()-\n"
+)
+
+    # Remove unwanted characters
+    clean_text = "".join(c for c in text if c in allowed_chars)
+    return clean_text
 
 def load_dataset(file_path):
     """load the dataset from the file"""
